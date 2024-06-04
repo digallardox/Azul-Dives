@@ -19,7 +19,8 @@
 
 ## Overview
 
-is lorem ipsum dolor sit amet. Phasellus dapibus fermentum risus vitae bibendum. Integer vel ipsum mollis odio sollicitudin ornare eu vel ex. In quis fringilla velit, ac maximus quam. Etiam eget placerat neque. Aenean faucibus sem non nisi lobortis ullamcorper._
+Azul spots is a unified site for snorkeling and scuba-diving reservations. It implements the idea of owners who have specific spots and users who purchase the trip and review the experience. The owners can have a rating and be “Super Guides”. Users can have fields that let the owners know the amount of scuba trips the user has and their experience level. 
+
 
 
 <br>
