@@ -21,25 +21,46 @@
 
 Azul spots is a unified site for snorkeling and scuba-diving reservations. It implements the idea of owners who have specific spots and users who purchase the trip and review the experience. The owners can have a rating and be “Super Guides”. Users can have fields that let the owners know the amount of scuba trips the user has and their experience level. 
 
+<br>
 
+## MVP Waterfall
+
+Users can see and reserve dive spots
+- Users can log into their account
+  - sers can update their name, contact info, see all reservations, etc on an account page.
+  - Users can log out of their account
+- Users can see reservations
+  - Users can cancel reservations
+  - Users can message owners of reservations
+  - Users can review past reservations
+
+Owners can see, edit, delete, and create dive spots
+- Owners have a hub of their listings
+  - Owner has a admin page where full CRUD can be performed on their listings
+  - Owner can update the main contact and about information for their account
+- Owners can see reservations
+  - Owners can see all users reserved for a spot
+  - Owners can message a single user or the group
+  - Reservations shown in calendar / chronological format
 
 <br>
 
-## MVP
+### Goals & How-to
 
-> The Minimum Viable Product should be a well-planned, easily-communicated product, ensuring that the client's deliverable will be achievable and meet specifications within the time frame estimated.
+Beautiful UI & UX
+  - Thoughtfully crafted interface that follows design principles and language such as material design or AirBnB design.
+  - Have the app user tested on atleast 10 people and get their feedback for revision
+  - A “wow” factor such as dark-mode toggling, personalization, or other unique component.
 
-_The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dapibus fermentum risus vitae bibendum. Integer vel ipsum mollis odio sollicitudin ornare eu vel ex. In quis fringilla velit, ac maximus quam. Etiam eget placerat neque. Aenean faucibus sem non nisi lobortis ullamcorper._
+Performant
+- A rating in Google Lighthouse score
+- Use caching to avoid expensive API queries
+- Use appropriate rendering methods for each page
 
-<br>
-
-### Goals
-
-- _Lorem ipsum, dolor sit amet,_
-- _consectetur adipiscing elit._
-- _Phasellus dapibus fermentum risus vitae bibendum._
-- _Integer vel ipsum mollis odio sollicitudin ornare eu vel ex._
-- _etc._
+Bug-free
+- Spend an hour stress testing the application under load and trying to break the site
+- Proper use of Typescript
+- Unit test each function
 
 <br>
 
