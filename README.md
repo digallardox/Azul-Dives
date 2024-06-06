@@ -80,6 +80,9 @@ Bug-free
 
 ### Client (Front End)
 
+#### Inspiration
+
+
 #### Wireframes
 
 > Use the Wireframes section to display desktop, tablet and mobile views. No hand-drawn wireframes. Use a tool like wireframe.cc, Whimsical or AdobeXD
@@ -147,6 +150,24 @@ src
 <br>
 
 ### Server (Back End)
+
+#### Data
+- Guides (has many spots)
+  - spots: Array<object>
+
+- Spots (belongs to owners)
+  - title: string
+  - description: text
+  - location: [number, number]
+  - tags: Array<string>
+  - type: "snorkel" | "scuba" | "both"
+  - images: Array<string>
+  - cost: number
+  - restrictions:
+
+- reservations (has many explorers)(belongs to spot)
+
+- explorers (has many reservations)
 
 #### ERD Model
 
