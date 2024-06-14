@@ -1,5 +1,5 @@
 "use client"
-import Button from "../buttons/Button"
+import Button from "../buttons/Primary Button/Button"
 
 const NotAuthPage = ({title, text, onClick, buttonText}) => {
     return (

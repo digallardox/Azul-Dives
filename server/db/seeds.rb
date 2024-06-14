@@ -1,7 +1,7 @@
 Diver.destroy_all
 DiveSpot.destroy_all
 
-@diego = Diver.create!(first_name:"diego", email:"diego@gmail.com")
+@diego = Diver.create!(first_name:"diego", email:"diego@gmail.com", password:"Sharkyshark")
 @bikini_bottom = DiveSpot.create!(name:"bikini bottom", description:"Who lives in a pineapple under the sea?", price:100, diver: @diego)
 @goo_lagoon = DiveSpot.create!(name:"goo lagoon", description:"ahhhh goo lagoon", price:80, diver: @diego)
 @goo_lagoon = DiveSpot.create!(name:"goo lagoon", description:"ahhhh goo lagoon", price:80, diver: @diego)

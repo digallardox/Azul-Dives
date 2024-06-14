@@ -7,13 +7,17 @@ export default function Dives() {
   const [popup, setPopup] = useState(false)
     return (
       <>
-      {popup ? <LoginScreen onClick={() => setPopup(false)} /> : null }
-        <NotAuthPage
+      {popup ? <LoginScreen onClick={() => setPopup(false)} />
+      :
+      <>
+      <NotAuthPage
         title="Upcoming Dives"
         text="Log in to see your planned dives"
         onClick={() => setPopup(true)}
         buttonText="log in"
         />
+      </>
+      }
       </>
     );
   }

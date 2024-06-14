@@ -1,5 +1,6 @@
 class DiversController < ApplicationController
   before_action :set_diver, only: %i[ show update destroy ]
+  before_action :authorize_request, except: :create
 
   # GET /divers
   def index
@@ -18,7 +19,11 @@ class DiversController < ApplicationController
     @diver = Diver.new(diver_params)
 
     if @diver.save
-      render json: @diver, status: :created, location: @diver
+      @token = encode({id: @diver.id})
+      render json: {
+        diver: @diver.attributes.except("password_digest"),
+        token: @token
+      }, status: :created, location: @diver
     else
       render json: @diver.errors, status: :unprocessable_entity
     end
@@ -46,6 +51,6 @@ class DiversController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def diver_params
-      params.require(:diver).permit(:first_name, :last_name, :email, :password_digest)
+      params.require(:diver).permit(:email, :password)
     end
 end

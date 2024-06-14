@@ -1,5 +1,6 @@
 class DiveSpotsController < ApplicationController
   before_action :set_dive_spot, only: %i[ show update destroy ]
+  # before_action :authorize_request, except: :create
 
   # GET /dive_spots
   def index

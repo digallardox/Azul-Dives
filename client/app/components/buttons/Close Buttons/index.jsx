@@ -5,9 +5,8 @@ const CloseButton = ({onClick}) => {
         <>
         <button
             onClick={onClick}
-            className="w-[41px] h-[41px] bg-white rounded-full border border-black">
-            <img
-            src="/assets/close_icon.svg" alt="close button" />
+            className="w-[40px] h-[40px] bg-white rounded-full flex items-center justify-center">
+            <img src="/assets/close_icon.svg" alt="close button" />
         </button>
         </>
     )
