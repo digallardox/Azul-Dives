@@ -1,7 +1,7 @@
 "use client"
 
-import Button from "../buttons/Primary Button/Button";
-import { handleSignup } from "@/app/services/queries";
+import Button from "@/app/components/buttons/Primary Button/Button";
+import { handleSignup } from "@/lib/queries";
 import { useState } from "react";
 
 

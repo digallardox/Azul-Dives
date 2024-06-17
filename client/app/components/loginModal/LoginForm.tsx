@@ -1,20 +1,26 @@
 "use client"
 
 import Button from "../buttons/Primary Button/Button";
-import { handleLogin } from "@/app/services/queries";
+import { handleLogin } from "@/lib/queries";
 import { useState } from "react";
-
+import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
-    const [login, setLogin] = useState({email: "", password: ""})
+    const router = useRouter()
+    const [loginFields, setLoginFields] = useState({ email: "", password: "" })
 
-    const handleChange = (e) => {
+    const handleChange = (e: any) => {
       const { name, value } = e.target;
-          setLogin((prevState) => ({
+          setLoginFields((prevState) => ({
               ...prevState,
               [name]: value,
           }));
       }
+
+    async function login(){
+        await handleLogin(loginFields)
+        router.push("/")
+    }
 
 return (
     <>
@@ -24,19 +30,19 @@ return (
                 <form
                 className="w-[460px] border rounded-xxl">
                     <input className="px-[20px] w-full h-[80px] block h-[20px] border" 
-                    value={login.email}
+                    value={loginFields.email}
                     name="email"
                     onChange={handleChange}
                     type="text" />
                     
                     <input className="px-[20px] w-full h-[80px] block h-[20px] border"
-                    value={login.password}
+                    value={loginFields.password}
                     name="password"
                     onChange={handleChange}
                     type="text" />
                 </form>
                 <Button
-                onClick={() => handleLogin(login)}
+                onClick={login}
                 text="Log in" 
                 />
                 </div>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import LoggedOut from "./components/app bars/LoggedOut"
+import AppBar from "@/app/components/appBar/AppBar"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         {children}
-      <LoggedOut />
+      <AppBar />
       </body>
     </html>
   );

@@ -1,16 +1,15 @@
 "use client"
-
-import NotAuthPage from "../components/Layouts/NotAuthPage"
-import LoginScreen from "../components/login/LoginScreen"
+import NotAuthPage from "@/app/components/layouts/NotAuthPage"
+import LoginScreen from "@/app/components/loginModal/LoginScreen"
 import { useState } from "react";
 
-export default function Login() {
-  const [popup, setPopup] = useState(false)
+export default function Saved() {
+const [popup, setPopup] = useState(false)
 
     return (
       <>
       {popup ? <LoginScreen onClick={() => setPopup(false)} /> 
-      :
+      : 
       <>
       <NotAuthPage
         title="Hello, Explorer"
@@ -18,7 +17,7 @@ export default function Login() {
         onClick={() => setPopup(true)}
         buttonText="log in"
         />
-      </>
+      </> 
       }
       </>
     );

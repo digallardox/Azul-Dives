@@ -1,6 +1,6 @@
 "use client"
-import NotAuthPage from "../components/Layouts/NotAuthPage"
-import LoginScreen from "../components/login/Login";
+import NotAuthPage from "@/app/components/layouts/NotAuthPage"
+import LoginScreen from "@/app/components/layouts/NotAuthPage.jsx";
 import { useState } from "react";
 
 export default function Dives() {

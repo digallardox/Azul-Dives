@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link"
 
-const LoggedOut = () => {
+const AppBar = () => {
     return (
         <>
         <Container>
@@ -40,7 +40,7 @@ const Explore = () => {
 const Saved = () => {
     return (
         <>
-            <Link href="/saved"
+            <Link href="/saved-dives"
             id="saved"
             className={Styles.menuItems}>
                 <img src="/assets/heart_icon.svg" alt="heart icon" />
@@ -55,7 +55,7 @@ const Saved = () => {
 const Dives = () => {
     return (
         <>
-            <Link href="/dives"
+            <Link href="/my-dives"
             id="dives"
             className={Styles.menuItems}>
 
@@ -70,7 +70,7 @@ const Dives = () => {
 const Login = () => {
     return (
         <>
-            <Link href="/login"
+            <Link href="/profile"
             id="login"
             className={Styles.menuItems}>
                 <img src="assets/profile_icon.svg" alt="profile icon" />
@@ -87,4 +87,4 @@ const Styles = {
     menuItems: "flex flex-col items-center"
 }
 
-export default LoggedOut;
+export default AppBar;
