@@ -1,10 +1,6 @@
 import Single from "./Single";
 
-const Multiple = async () => {
-  const res = await fetch(
-    "https://automatic-happiness-4r65xpq77x5cq456-3000.app.github.dev/dive_spots",
-  );
-  const data = await res.json();
+const Multiple = ({ data }) => {
 
   return (
     <>

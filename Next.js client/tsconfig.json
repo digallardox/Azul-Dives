@@ -27,7 +27,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/components/loginModal/LoginScreen.jsx",
-    "app/context/SessionContext.tsx"
+    "app/context/SessionContext.jsx"
   ],
   "exclude": ["node_modules"]
 }

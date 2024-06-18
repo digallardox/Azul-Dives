@@ -5,7 +5,8 @@ import SessionContext from "@/app/context/SessionContext";
 import Link from "next/link";
 
 const MenuItems = () => {
-  const { isAuthorized } = useContext(SessionContext) || null
+  const { session } = useContext(SessionContext) || null
+  const { token } = session
 
   return (
     <>
@@ -30,7 +31,7 @@ const MenuItems = () => {
         </Link>
       </span>
 
-      {!!isAuthorized ? (
+      {!!token ? (
         <span id="profile">
           <Link href="/profile" id="login" className={Styles.menuItems}>
             <img src="assets/profile_icon.svg" alt="profile icon" />

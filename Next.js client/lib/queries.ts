@@ -20,9 +20,7 @@ const handleLogin = async (login: AuthFields) => {
 
     if (!res.ok) return `Error: ${res.status}`;
     const data = await res.json();
-
-    if (data.token) localStorage.setItem("jwt", data.token);
-    if (data.diver) localStorage.setItem("diver", JSON.stringify(data.diver))
+    if (!!data) localStorage.setItem("session_data", JSON.stringify(data))
 
   } catch (error) {
     console.error("Login failed", error);
