@@ -7,6 +7,7 @@ class AuthenticationsController < ApplicationController
           @token = encode({id: @diver.id})
           render json: {
             diver: @diver.attributes.except("password_digest"),
+            saved_dives: @diver.saved_spots,
             token: @token
             }, status: :ok
         else
