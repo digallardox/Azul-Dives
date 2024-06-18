@@ -9,7 +9,6 @@ const NotAuthPage = ({ title, text, onClick, buttonText }) => {
         <div className="pt-[60px]">
           <span className="font-semibold text-[32px]">{text}</span>
           <br />
-
           <Button onClick={onClick} text={buttonText} />
         </div>
       </div>

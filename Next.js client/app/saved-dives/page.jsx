@@ -10,18 +10,16 @@ export default function Saved() {
   const [popup, setPopup] = useState(false);
 
   const { session } = useContext(SessionContext) || null;
-  const { saved_dives } = session
+  const saved_dives = session?.saved_dives;
 
   if (!!saved_dives)
     return (
       <>
-        <div className="px-[20px] pt-[100px]">
           <div className="pb-[20px]">
             <div className="font-semibold text-[32px]">Saved Dives</div>
             <div className="text-xl">{saved_dives.length} total</div>
           </div>
           <DivesGallery data={saved_dives} />
-        </div>
       </>
     );
 
@@ -31,14 +29,12 @@ export default function Saved() {
         <LoginScreen onClick={() => setPopup(false)} />
       ) : (
         <>
-          <div className="px-[20px] pt-[100px]">
             <NotAuthPage
-              title="Hello, Explorer"
-              text="Log in to start planning your next adventure"
+              title="Saved Dives"
+              text="Log in to see your saved dives"
               onClick={() => setPopup(true)}
               buttonText="log in"
             />
-          </div>
         </>
       )}
     </>

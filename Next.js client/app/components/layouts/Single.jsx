@@ -6,13 +6,14 @@ import SessionContext from "@/app/context/SessionContext";
 
 const Single = ({ title, text, cost, id }) => {
   const router = useRouter();
-    const { isAuthorized } = useContext(SessionContext);
+    const { session } = useContext(SessionContext);
+    const token = session?.token
 
   function handleClick() {
     router.push(`/dives/${id}`);
   }
 
-  if (!!isAuthorized) return (
+  if (!!token) return (
     <>
       <div className="pb-[40px] cursor-pointer">
         <SaveButton style="absolute" />

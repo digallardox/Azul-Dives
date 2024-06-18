@@ -3,7 +3,18 @@ type AuthFields = { email: string; password: string };
 const API_ENDPOINT = (URI: string) =>
   `https://automatic-happiness-4r65xpq77x5cq456-3000.app.github.dev${URI}`;
 
-const handleLogin = async (login: AuthFields) => {
+export const getDiveSpots = async () => {
+  const res = await fetch(API_ENDPOINT("/dive_spots"));
+  if (!res.ok) console.error("Error fetching dive spots");
+  try {
+    const data = await res.json()
+    return data;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export const handleLogin = async (login: AuthFields) => {
   try {
     const res = await fetch(API_ENDPOINT("/auth/login"), {
       method: "POST",
@@ -20,14 +31,13 @@ const handleLogin = async (login: AuthFields) => {
 
     if (!res.ok) return `Error: ${res.status}`;
     const data = await res.json();
-    if (!!data) localStorage.setItem("session_data", JSON.stringify(data))
-
+    if (!!data) localStorage.setItem("session_data", JSON.stringify(data));
   } catch (error) {
     console.error("Login failed", error);
   }
 };
 
-const handleSignup = async (signup: AuthFields) => {
+export const handleSignup = async (signup: AuthFields) => {
   try {
     const res = await fetch(API_ENDPOINT("/divers"), {
       method: "POST",
@@ -47,5 +57,3 @@ const handleSignup = async (signup: AuthFields) => {
     console.error("Failed creating accoutn", error);
   }
 };
-
-export { handleLogin, handleSignup };

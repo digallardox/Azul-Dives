@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <SessionProvider>
-          {children}
+          <div id="margins" className="px-[20px] pt-[100px]">{children}</div>
           <AppBar />
         </SessionProvider>
       </body>

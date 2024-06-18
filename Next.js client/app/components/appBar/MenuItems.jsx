@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const MenuItems = () => {
   const { session } = useContext(SessionContext) || null
-  const { token } = session
+  const token  = session?.token
 
   return (
     <>

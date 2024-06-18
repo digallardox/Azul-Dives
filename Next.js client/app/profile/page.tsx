@@ -8,7 +8,8 @@ import Information from "@/app/components/layouts/Information";
 export default function Login() {
   const [popup, setPopup] = useState(false);
   const { session } = useContext(SessionContext) || null;
-  const { token, diver } = session
+  const token = session?.token
+  const diver = session?.diver
 
   function handleLogout() {
     localStorage.removeItem("session_data");
@@ -18,7 +19,6 @@ export default function Login() {
   if (!!token)
     return (
       <>
-        <div className="px-[20px] pt-[100px]">
           <div id="header" className="flex items-center gap-[10px] pb-[20px]">
             <span className="bg-[#D4D4D4] h-[50px] w-[50px] rounded-full flex p-[10px]">
               <img src="/assets/profile_icon.svg" />
@@ -46,7 +46,6 @@ export default function Login() {
               </div>
             </div>
           </>
-        </div>
       </>
     );
 
@@ -57,14 +56,12 @@ export default function Login() {
           <LoginScreen onClick={() => setPopup(false)} />
         ) : (
           <>
-            <div className="px-[20px] pt-[100px]">
               <NotAuthPage
                 title="Hello, Explorer"
                 text="Log in to start planning your next adventure"
                 onClick={() => setPopup(true)}
                 buttonText="log in"
               />
-            </div>
           </>
         )}
       </>
