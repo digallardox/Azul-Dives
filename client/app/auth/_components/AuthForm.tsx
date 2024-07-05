@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { handleChange } from "@/app/helpers/handleChange";
+import { handleChange } from "@/app/_helpers/handleChange";
 import { Credentials } from "@/types/apiTypes";
 
 type AuthFormProps = {
@@ -24,10 +24,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ type, onSubmit }) => {
     <>
       <div>
         <span className={Styles.title}>{type}</span>
-        <form
-          onSubmit={handleSubmit}
-          className={Styles.form}
-        >
+        <form onSubmit={handleSubmit} className={Styles.form}>
           <input
             className={Styles.input}
             value={credentials.username}

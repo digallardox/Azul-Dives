@@ -1,6 +1,8 @@
+"use server"
 import serverRequest from "../apiConfig";
 import { Credentials } from "@/types/apiTypes";
-import { toJSON } from "@/app/helpers/json";
+import { toJSON } from "@/app/_helpers/json";
+import { setSession } from "./setSession";
 
 const config = (credentials: Credentials) => {
   const body = toJSON({
@@ -19,11 +21,12 @@ const config = (credentials: Credentials) => {
   };
 };
 
-
 export const loginUser = async (credentials: Credentials) => {
   try {
-    return await serverRequest("/auth/login", config(credentials));
-  } catch (error: any){
-    console.error(`Error logging in user = ${error.message}`)
+    const res = await serverRequest("/auth/login", config(credentials));
+    console.log(res)
+    setSession(res)
+  } catch (error: any) {
+    console.error(`Error logging in user = ${error.message}`);
   }
 };

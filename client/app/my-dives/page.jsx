@@ -1,19 +1,12 @@
 import Link from "next/link";
+import { checkToken } from "../_lib/auth/checkToken";
+import { LoggedIn } from "./_screens/LoggedIn"
+import { LoggedOut } from "./_screens/LoggedOut"
 
-const MyDives = () => {
+const MyDives = async () => {
+  const token = await checkToken()
 
-  return (
-    <>
-      <div>
-        <span className="font-semibold text-[32px]">Upcoming Dives</span>
-        <div className="pt-[60px]">
-          <span className="font-semibold text-[32px]">Log in to see your planned dives</span>
-          <br />
-          <Link href="/auth">Log in</Link>
-        </div>
-      </div>
-    </>
-  );
-};
+  return !token ? <LoggedOut /> : <LoggedIn />
+}
 
 export default MyDives;

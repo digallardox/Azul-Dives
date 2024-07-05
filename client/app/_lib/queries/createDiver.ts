@@ -1,6 +1,6 @@
 import serverRequest from "../apiConfig";
 import { Credentials } from "@/types/apiTypes";
-import { toJSON } from "@/app/helpers/json";
+import { toJSON } from "@/app/_helpers/json";
 
 export const createDiver = async (credentials: Credentials) => {
   const body = {
@@ -8,7 +8,7 @@ export const createDiver = async (credentials: Credentials) => {
       username: credentials.username,
       password: credentials.password,
     },
-  }
+  };
 
   return await serverRequest("/divers", {
     method: "POST",

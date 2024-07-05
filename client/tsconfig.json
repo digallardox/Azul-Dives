@@ -26,10 +26,13 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/components/loginModal/LoginScreen.jsx",
+    "app/_components/loginModal/LoginScreen.jsx",
     "app/context/SessionContext.jsx",
-    "app/lib/operations.js",
-    "app/profile/page.jsx"
-, "app/components/Cards/index.jsx", "app/profile/variants/Explorer.jsx", "app/lib/queries.js"  ],
+    "app/_lib/operations.js",
+    "app/profile/page.jsx",
+    "app/_components/Card/index.jsx",
+    "app/profile/variants/Explorer.jsx",
+    "app/_lib/queries.js"
+  ],
   "exclude": ["node_modules"]
 }

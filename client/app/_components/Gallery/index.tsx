@@ -1,4 +1,4 @@
-import Card from "../Cards";
+import Card from "../Card";
 
 const Gallery = ({ data }: any) => {
   if (!!data) {

@@ -1,17 +1,12 @@
-import SearchBar from "@/app/components/SearchBar";
-import Gallery from "./components/Gallery";
-import { getDives } from "@/app/lib/queries/getDives";
+import SearchBar from "@/app/_components/SearchBar";
+import Gallery from "./_components/Gallery";
+import { getDives } from "@/app/_lib/queries/getDives";
 
 const Home = async () => {
-  const data = await getDives()
+  const data = await getDives();
 
-  
   if (!data) {
-    return (
-      <>
-      no data :)
-      </>
-    )
+    return <>no data :)</>;
   }
 
   return (

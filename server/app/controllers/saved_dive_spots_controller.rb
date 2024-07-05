@@ -2,8 +2,8 @@ class SavedDiveSpotsController < ApplicationController
     before_action :set_diver
 
     def index
-        @saved_dives = @diver.saved_dive_spots
-        render json: @saved_dives
+        @saved_dives = @diver.saved_dive_spots.includes(:dive_spot)
+        render json: @saved_dives.as_json(include: :dive_spot)
       end
 
     def create

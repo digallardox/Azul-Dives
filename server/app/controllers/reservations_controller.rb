@@ -2,8 +2,8 @@ class ReservationsController < ApplicationController
     before_action :set_diver
 
     def index
-        @reservations = @diver.reservations
-        render json: @reservations
+        @reservations = @diver.reservations.includes(:dive_spot)
+        render json: @reservations.as_json(include: :dive_spot)
       end
 
       def create
