@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { handleChange } from "@/app/_helpers/handleChange";
 import { Credentials } from "@/types/apiTypes";
+import { reloadPage } from "@/app/_helpers/reloadPage";
 
 type AuthFormProps = {
   type: string;
@@ -17,7 +18,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ type, onSubmit }) => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const res = await onSubmit(credentials);
-    console.log(res)
+    reloadPage()
   };
 
   return (

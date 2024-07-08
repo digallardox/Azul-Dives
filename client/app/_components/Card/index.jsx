@@ -5,7 +5,6 @@ import { checkToken } from "@/app/_lib/auth/checkToken";
 
 const Card = async({ id, title, text, cost }) => {
   const token = await checkToken()
-
   const fields = { id, title, text, cost }
   if (!token) {
     return <LoggedOut fields={fields} />;

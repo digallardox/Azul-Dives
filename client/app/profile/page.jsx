@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { checkToken } from "../_lib/auth/checkToken";
-import { LogoutButton } from "./_components/LogoutButton";
+import { LoggedIn } from "./_screens/LoggedIn";
 
 const Profile = async () => {
   const token = await checkToken();
@@ -8,8 +8,7 @@ const Profile = async () => {
   if (token) {
     return (
       <>
-        <span className="font-semibold text-[32px]">Hello, Explorer</span>
-        <LogoutButton />
+      <LoggedIn />
       </>
     );
   }

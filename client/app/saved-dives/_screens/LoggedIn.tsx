@@ -9,7 +9,7 @@ export const LoggedIn = async () => {
 
   return (
     <>
-      <span className="font-semibold text-[32px]">Saved Dives</span>
+      <div className="font-semibold text-[32px]">Saved Dives</div>
       <span>{data.length} total</span>
       <>
         <div className="pb-[60px]">

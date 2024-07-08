@@ -32,7 +32,8 @@
     "app/profile/page.jsx",
     "app/_components/Card/index.jsx",
     "app/profile/variants/Explorer.jsx",
-    "app/_lib/queries.js"
-  ],
+    "app/_lib/queries.js",
+    "app/profile/_components/FormTemplate.jsx"
+, "app/_helpers/sanitize.js"  ],
   "exclude": ["node_modules"]
 }

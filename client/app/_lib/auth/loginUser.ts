@@ -24,7 +24,6 @@ const config = (credentials: Credentials) => {
 export const loginUser = async (credentials: Credentials) => {
   try {
     const res = await serverRequest("/auth/login", config(credentials));
-    console.log(res)
     setSession(res)
   } catch (error: any) {
     console.error(`Error logging in user = ${error.message}`);

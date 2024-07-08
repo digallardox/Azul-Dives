@@ -1,17 +1,20 @@
-"use client"
-export const LogoutButton = () => {
+"use client";
 
-    const handleLogout = async () => {
-        await fetch(
-          "https://urban-couscous-595jw7gwj6wc44wv-3001.app.github.dev/api/auth/clear-session", {
-            method: "DELETE"
-          }
-        );
-        location.reload()
-    }
+export const LogoutButton = () => {
+  const handleLogout = () => {
+    fetch(
+      "https://urban-couscous-595jw7gwj6wc44wv-3001.app.github.dev/api/auth/clear-session",
+      {
+        method: "DELETE",
+      }
+    );
+    location.reload();
+  };
   return (
     <>
-      <button onClick={handleLogout}>logout</button>
+      <button 
+      className="underline"
+      onClick={handleLogout}>logout</button>
     </>
   );
 };
