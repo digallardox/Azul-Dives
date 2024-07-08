@@ -34,6 +34,6 @@
     "app/profile/variants/Explorer.jsx",
     "app/_lib/queries.js",
     "app/profile/_components/FormTemplate.jsx"
-, "app/_helpers/sanitize.js"  ],
+, "app/_helpers/sanitize.js", "app/_lib/queries/updateDiver.js", "app/_helpers/toggleState.js"  ],
   "exclude": ["node_modules"]
 }

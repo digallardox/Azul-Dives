@@ -13,8 +13,8 @@ export const LogoutButton = () => {
   return (
     <>
       <button 
-      className="underline"
-      onClick={handleLogout}>logout</button>
+      className="underline pt-[40px] text-lg"
+      onClick={handleLogout}>Log out</button>
     </>
   );
 };

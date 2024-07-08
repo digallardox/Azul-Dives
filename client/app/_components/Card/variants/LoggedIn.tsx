@@ -1,24 +1,36 @@
-"use client"
+"use client";
 import Link from "next/link";
 import { useState } from "react";
+import { toggleState } from "@/app/_helpers/toggleState";
 
 export const LoggedIn = ({ fields }: any) => {
-  const [isSaved, setIsSaved] = useState(false)
+  const [isSaved, setIsSaved] = useState(false);
 
   const { id, title, text, cost } = fields;
+  // get saved dive id
+  // make delet request
+
+  const getData = async () => {
+    const res = await fetch(
+      `https://urban-couscous-595jw7gwj6wc44wv-3000.app.github.dev/divers/5/saved_dive_spots/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
+  };
 
   return (
     <>
       {!!isSaved ? (
         <div
-          onClick={() => setIsSaved((prevState) => !prevState)}
+          onClick={() => toggleState(setIsSaved)}
           className="absolute bg-white rounded-full p-[10px]"
         >
           <img src="/assets/heart_icon.svg" />
         </div>
       ) : (
         <div
-          onClick={() => setIsSaved((prevState) => !prevState)}
+          onClick={() => toggleState(setIsSaved)}
           className="absolute bg-white rounded-full p-[10px]"
         >
           <img src="/assets/heart_icon_filled.svg" />

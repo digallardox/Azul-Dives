@@ -1,6 +1,6 @@
 import { getSaved } from "@/app/_lib/queries/getSaved";
 import Gallery from "@/app/_components/Gallery";
-import Card from "@/app/_components/Card";
+import { Card } from "../_components/Card";
 import { cookies } from "next/headers";
 
 export const LoggedIn = async () => {
@@ -13,18 +13,19 @@ export const LoggedIn = async () => {
       <span>{data.length} total</span>
       <>
         <div className="pb-[60px]">
-          {data.map(({ dive_spot }: any) => (
-            <Card
-              id={dive_spot.id}
-              title={dive_spot.name}
-              text={dive_spot.description}
-              cost={dive_spot.price}
-            />
-          ))}
+          {data.map((dive_spot: any) => {
+            return (
+              <Card
+                saved_id={dive_spot.id}
+                id={dive_spot.dive_spot.id}
+                title={dive_spot.dive_spot.name}
+                text={dive_spot.dive_spot.description}
+                cost={dive_spot.dive_spot.price}
+              />
+            );
+          })}
         </div>
       </>
     </>
   );
 };
-
-export default Gallery;
