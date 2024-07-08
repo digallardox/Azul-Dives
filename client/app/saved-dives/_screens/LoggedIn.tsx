@@ -1,4 +1,4 @@
-import { getSaved } from "@/app/_lib/queries/getSaved";
+import { getSaved } from "@/app/_lib/queries/saved/getSaved";
 import Gallery from "@/app/_components/Gallery";
 import { Card } from "../_components/Card";
 import { cookies } from "next/headers";

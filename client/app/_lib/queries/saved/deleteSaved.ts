@@ -1,5 +1,5 @@
-import serverRequest from "../apiConfig";
-import { getUserID } from "../auth/getUserID";
+import serverRequest from "../../apiConfig";
+import { getUserID } from "../../auth/getUserID";
 
 export const deleteSaved = async (id: any) => {
   const userID = await getUserID();
@@ -8,6 +8,6 @@ export const deleteSaved = async (id: any) => {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-    }
+    },
   });
 };

@@ -2,7 +2,6 @@ import serverRequest from "../apiConfig";
 import { toJSON } from "@/app/_helpers/json";
 
 export const updateDiver = async (id, keyValue) => {
-    console.log("keyvalue: ", keyValue)
   const body = {
     diver: keyValue
   };

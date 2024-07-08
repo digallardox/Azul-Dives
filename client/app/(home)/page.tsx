@@ -1,6 +1,6 @@
 import SearchBar from "@/app/_components/SearchBar";
-import Gallery from "./_components/Gallery";
 import { getDives } from "@/app/_lib/queries/getDives";
+import { Card } from "./_components/Card"
 
 const Home = async () => {
   const data = await getDives();
@@ -12,7 +12,16 @@ const Home = async () => {
   return (
     <>
       <SearchBar />
-      <Gallery data={data} />
+      {data.map((dive_spot: any) => {
+        return (
+          <Card
+            id={dive_spot.id}
+            title={dive_spot.name}
+            text={dive_spot.description}
+            cost={dive_spot.price}
+          />
+        );
+      })}
     </>
   );
 };
