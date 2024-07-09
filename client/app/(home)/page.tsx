@@ -1,6 +1,6 @@
 import SearchBar from "@/app/_components/SearchBar";
-import { getDives } from "@/app/_lib/queries/getDives";
-import { Card } from "./_components/Card"
+import { getDives } from "@/app/_lib/queries/dives/getDives";
+import { Card } from "./_components/Card";
 
 const Home = async () => {
   const data = await getDives();
