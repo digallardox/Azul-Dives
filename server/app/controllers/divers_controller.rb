@@ -1,6 +1,6 @@
 class DiversController < ApplicationController
   before_action :set_diver, only: %i[ show update destroy ]
-  # before_action :authorize_request, except: :create
+  before_action :authorize_request, except: :create
 
   # GET /divers
   def index

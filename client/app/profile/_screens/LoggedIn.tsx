@@ -5,8 +5,8 @@ import { FormTemplate } from "../_components/FormTemplate";
 
 export const LoggedIn = async () => {
   const id = await getUserID();
-  const { diver } = await getDiver(id);
-  const { first_name, last_name, username } = diver;
+  const { diver } = await getDiver(id) || null
+  const { first_name, last_name, username } = diver || null
 
   return (
     <>

@@ -1,6 +1,10 @@
 "use client";
+import { useRouter } from "next/navigation";
+import { clearSession } from "@/app/_lib/auth/clearSession";
 
 export const LogoutButton = () => {
+  const router = useRouter()
+
   const handleLogout = () => {
     fetch(
       "https://urban-couscous-595jw7gwj6wc44wv-3001.app.github.dev/api/auth/clear-session",
@@ -8,7 +12,7 @@ export const LogoutButton = () => {
         method: "DELETE",
       }
     );
-    location.reload();
+    router.push("/")
   };
   return (
     <>

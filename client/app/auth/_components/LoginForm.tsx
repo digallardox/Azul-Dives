@@ -1,11 +1,13 @@
 "use client"
 import AuthForm from "./AuthForm";
-import { loginUser } from "@/app/_lib/auth/loginUser";
+import { authenticate } from "@/app/_lib/auth/authenticate";
+import { Form } from "./form";
 
 const LoginForm = () => {
   return (
     <>
-      <AuthForm type="Log in" onSubmit={loginUser} />
+      {/* <AuthForm type="Log in" onSubmit={authenticate} /> */}
+      <Form />
     </>
   );
 }

@@ -1,7 +1,8 @@
-export const parseJSON = async (res: any): Promise<any> => {
+export const parseJSON = async (data: any): Promise<any> => {
   try {
-    return await res.json();
-  } catch (error: any) {
+    const parsed = await data.json();
+    return parsed
+  } catch (error) {
     console.error(`Error parsing json - ${error.message}`); 
     return null
   }

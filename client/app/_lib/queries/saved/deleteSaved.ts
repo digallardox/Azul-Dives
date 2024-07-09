@@ -7,7 +7,7 @@ export const deleteSaved = async (id: any) => {
   return await serverRequest(`/divers/${userID}/saved_dive_spots/${id}`, {
     method: "DELETE",
     headers: {
-      "Content-Type": "application/json",
-    },
+      "Content-Type": "application/json"
+    }
   });
 };

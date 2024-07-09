@@ -3,7 +3,7 @@ class AuthenticationsController < ApplicationController
 
     def login
         @diver = Diver.find_by(username: login_params[:username])
-        if @diver.authenticate(login_params[:password]) #authenticate method provided by Bcrypt and 'has_secure_password'
+        if @diver.authenticate(login_params[:password]) 
           @token = encode({id: @diver.id})
           render json: {
             diver: @diver.attributes.except("password_digest"),
