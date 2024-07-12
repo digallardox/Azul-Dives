@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { useState } from "react";
 import { toggleState } from "@/app/_helpers/toggleState";
-import { getSaved } from "@/app/_lib/queries/saved/getSaved";
 import { createSaved } from "@/app/_lib/queries/saved/createSaved";
 
 export const Card = (fields) => {

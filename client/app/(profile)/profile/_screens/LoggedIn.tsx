@@ -1,7 +1,9 @@
 import { LogoutButton } from "../_components/LogoutButton";
+import { SwitchContextButton } from "../_components/SwitchContextButton";
 import { getDiver } from "@/app/_lib/queries/getDiver";
 import { getUserID } from "@/app/_lib/auth/getUserID";
 import { FormTemplate } from "../_components/FormTemplate";
+// import { SwitchContextButton } from "./_components/SwitchContextButton"
 
 export const LoggedIn = async () => {
   const id = await getUserID();
@@ -17,6 +19,9 @@ export const LoggedIn = async () => {
       <FormTemplate label="Last name" value={last_name} />
       <FormTemplate label="Username" value={username} />
       <LogoutButton />
+      <SwitchContextButton />
     </>
   );
 };
+
+

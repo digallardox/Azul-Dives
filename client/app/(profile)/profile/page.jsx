@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { checkToken } from "../_lib/auth/checkToken";
+import { checkToken } from "@/app/_lib/auth/checkToken";
 import { LoggedIn } from "./_screens/LoggedIn";
 
 const Profile = async () => {

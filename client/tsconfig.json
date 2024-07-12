@@ -29,11 +29,11 @@
     "app/_components/loginModal/LoginScreen.jsx",
     "app/context/SessionContext.jsx",
     "app/_lib/operations.js",
-    "app/profile/page.jsx",
+    "app/(profile)/profile/page.jsx",
     "app/_components/Card/index.jsx",
-    "app/profile/variants/Explorer.jsx",
+    "app/(profile)/profile/variants/Explorer.jsx",
     "app/_lib/queries.js",
-    "app/profile/_components/FormTemplate.jsx"
-, "app/_helpers/sanitize.js", "app/_lib/queries/updateDiver.js", "app/_helpers/toggleState.js", "app/saved-dives/_screens/LoggedIn.tsx"  ],
+    "app/(profile)/profile/_components/FormTemplate.jsx"
+, "app/_helpers/sanitize.js", "app/_lib/queries/updateDiver.js", "app/_helpers/toggleState.js", "app/(saved)/saved-dives/_screens/LoggedIn.tsx"  ],
   "exclude": ["node_modules"]
 }
