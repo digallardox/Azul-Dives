@@ -1,34 +1,40 @@
 import Link from "next/link";
 
 export const Appbar = () => {
+
+  const links = {
+    explorer: "/",
+    saved: "/saved",
+    reservations: "/reservations",
+    profile: "/profile"
+  }
+
   return (
     <>
       <div className={Styles.container}>
-        <Link href="/" id="explore" className={Styles.menuItems}>
+        <Link href={links.explorer} className={Styles.menuItems}>
           <img src="/icons/search_icon.svg" alt="search icon" />
           <div className={Styles.text}>Explore</div>
         </Link>
 
-        <Link href="/saved-dives" id="saved" className={Styles.menuItems}>
+        <Link href={links.saved} className={Styles.menuItems}>
           <img src="/icons/heart_icon.svg" alt="heart icon" />
           <div className={Styles.text}>Saved</div>
         </Link>
 
-        <Link href="/my-dives" id="dives" className={Styles.menuItems}>
+        <Link href={links.reservations} className={Styles.menuItems}>
           <img src="/icons/scuba_icon.png" alt="scuba icon" />
           <div className={Styles.text}>Dives</div>
         </Link>
 
-        <Link href="/profile" id="login" className={Styles.menuItems}>
-          <img src="icons/profile_icon.svg" alt="profile icon" />
+        <Link href={links.profile} className={Styles.menuItems}>
+          <img src="/icons/profile_icon.svg" alt="profile icon" />
           <div className={Styles.text}>Profile</div>
         </Link>
       </div>
     </>
   );
 };
-
-export default Appbar;
 
 export const Styles = {
   container:

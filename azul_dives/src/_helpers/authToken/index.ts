@@ -3,23 +3,36 @@ import { cookies } from "next/headers";
 
 const authToken = "authToken";
 
-export const getAuthToken = () => {
-  const cookieStore = cookies();
+type ReturnType = {
+  authorized: boolean,
+  message?: string
+  authToken?: string
+}
+
+export const getAuthToken = async (): Promise<ReturnType> => {
   try {
-    const res = cookieStore.get(authToken);
-    return res;
+    const res = cookies().get(authToken);
+    if (!res) {
+      return {
+        authorized: false,
+        message: "Cookie was undefined"
+      }
+    }
+    return {
+      authorized: true,
+      authToken: res.value
+    }
   } catch (err) {
     return {
-      success: false,
+      authorized: false,
       message: `Error getting authToken`,
     };
   }
 };
 
 export const setAuthToken = async (value: string) => {
-  const cookieStore = cookies();
   try {
-    cookieStore.set(authToken, value);
+    cookies().set(authToken, value);
     return {
       success: true,
       message: "Successfully set authToken cookie"
@@ -33,9 +46,8 @@ export const setAuthToken = async (value: string) => {
 };
 
 export const deleteAuthToken = async () => {
-  const cookieStore = cookies();
   try {
-    cookieStore.delete(authToken);
+    cookies().delete(authToken);
   } catch (err) {
     return {
       success: false,

@@ -1,16 +1,13 @@
 "use server";
 import { API_ENDPOINT } from "../api_config";
- 
+import { authVerify } from "./authVerify";
+
 const paths = {
   login: "/auth/login",
-  verify: "/auth/verify",
 };
 
+
 export const authLogin = async (credentials: any) => {
-
-  const url = API_ENDPOINT(paths.login);
-  console.log(url);
-
   const body = JSON.stringify(credentials);
   try {
     const res = await fetch(API_ENDPOINT(paths.login), {
@@ -19,18 +16,32 @@ export const authLogin = async (credentials: any) => {
         "Content-Type": "application/json",
       },
       body: body,
+      cache: "no-store",
     });
+
     if (!res.ok)
       return {
         success: false,
-        message: `Response failed: ${res.status}`,
+        message: `authLogin request failed: ${res.status} ${res.statusText}`,
       };
+
     const data = await res.json();
-    return data;
+
+    if (!data || !data.token)
+      return {
+        success: false,
+        message: "authLogin request recieved a response but there was not a body or token",
+      };
+
+    return {
+      success: true,
+      token: data.token
+    };
+
   } catch (err: any) {
     return {
       success: false,
-      message: `Fetch request failed: ${err.message}`,
+      message: `authLogin catch block - request failed: ${err.message}`,
     };
   }
 };
