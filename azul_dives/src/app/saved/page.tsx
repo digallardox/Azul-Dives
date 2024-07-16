@@ -5,19 +5,19 @@ import { UnauthorizedView } from "@/_components/UnauthorizedView";
 import { Layout } from "@/_components/Layout";
 
 const Saved = async () => {
-  const dive_spot = await getSavedDiveSpots()
+  const savedDives = await getSavedDiveSpots();
+  const { authorized } = await getAuthToken();
 
-    const { authorized } = await getAuthToken();
-
-    if (!!authorized) {
-      return (
-        <>
-          <Layout>
-            <DiveGallery data={dive_spot} />
-          </Layout>
-        </>
-      );
-    }
+  if (!!authorized) {
+    return (
+      <>
+        <Layout>
+          <div className="font-semibold text-2xl pb-[20px]">Saved Dives</div>
+          <DiveGallery data={savedDives} />
+        </Layout>
+      </>
+    );
+  }
 
   return (
     <>

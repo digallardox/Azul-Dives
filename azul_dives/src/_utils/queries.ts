@@ -64,3 +64,24 @@ export const getUserProfile = async () => {
     };
   }
 }
+
+export const getReservedDives = async () => {
+  const { authToken } = await getAuthToken();
+  const config = {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+    },
+    cache: "no-store",
+  };
+
+  try {
+    const res = await serverRequest("/reservations", config);
+    return res
+  } catch (err: any) {
+    return {
+      success: false,
+      message: `Error in getReservedDives(): ${err.message}`,
+    };
+  }
+}
