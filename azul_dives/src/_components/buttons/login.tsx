@@ -14,5 +14,12 @@ export const LoginButton = () => {
             setAuthToken(res.token)
     }
 
-    return <button onClick={handleLogin}>Login</button>;
+    return (
+      <button
+        className="w-[100px] h-[50px] inline-flex items-center justify-center bg-black rounded-md text-white"
+        onClick={handleLogin}
+      >
+        Login
+      </button>
+    );
 }

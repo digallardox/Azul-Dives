@@ -12,7 +12,9 @@ const Saved = async () => {
     if (!!authorized) {
       return (
         <>
-          <DiveGallery data={dive_spot} />
+          <Layout>
+            <DiveGallery data={dive_spot} />
+          </Layout>
         </>
       );
     }

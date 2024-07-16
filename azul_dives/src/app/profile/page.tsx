@@ -5,12 +5,22 @@ import { getUserProfile } from "@/_utils/queries";
 import { getAuthToken } from "@/_helpers/authToken";
 import { UnauthorizedView } from "@/_components/UnauthorizedView";
 import { Layout } from "@/_components/Layout";
+import { ProfileForm } from "@/_components/ProfileForm";
 
 const Login = async () => {
   const { authorized } = await getAuthToken();
+  const { diver } = await getUserProfile();
 
   if (!!authorized) {
-    return <>auth</>;
+    return (
+      <>
+        <Layout>
+          <div className="font-semibold text-2xl pb-[20px]">Hello, {diver.first_name} {diver.last_name}</div>
+          <div className="font-semibold text-xl pb-[20px]">Settings</div>
+          <ProfileForm user={diver} />
+        </Layout>
+      </>
+    );
   }
 
   return (

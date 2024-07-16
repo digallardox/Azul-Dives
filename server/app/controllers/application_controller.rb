@@ -15,8 +15,10 @@ class ApplicationController < ActionController::API
     header = request.headers['Authorization']
     token = header.split(' ').last if header
     begin
+
       @payload = decode(token)
       @current_diver = Diver.find(@payload[:id])
+
     rescue ActiveRecord::RecordNotFound => e
       render json: { errors: e.message }, status: :unauthorized
     rescue JWT::DecodeError => e
@@ -24,3 +26,18 @@ class ApplicationController < ActionController::API
     end
   end
 end
+
+  def set_current_user
+    header = request.headers['Authorization']
+    token = header.split(' ').last if header
+    if token
+      begin
+        @payload = decode(token)
+        @current_diver = Diver.find(@payload[:id])
+      rescue ActiveRecord::RecordNotFound, JWT::DecodeError
+        @current_diver = nil
+      end
+    else
+      @current_diver = nil
+    end
+  end

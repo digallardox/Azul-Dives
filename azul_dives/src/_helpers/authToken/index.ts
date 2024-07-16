@@ -48,6 +48,9 @@ export const setAuthToken = async (value: string) => {
 export const deleteAuthToken = async () => {
   try {
     cookies().delete(authToken);
+    return {
+      success: true
+    };
   } catch (err) {
     return {
       success: false,

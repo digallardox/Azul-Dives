@@ -5,3 +5,4 @@ class DiveSpot < ApplicationRecord
   has_many :divers_who_saved, through: :saved_dive_spots, source: :diver
   has_many :reservations, dependent: :destroy
 end
+

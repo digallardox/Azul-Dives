@@ -1,7 +1,9 @@
 class SavedDiveSpotsController < ApplicationController
-    before_action :set_diver
+    # before_action :set_diver
+    before_action :authorize_request
 
     def index
+        @diver = @current_diver
         @saved_dives = @diver.saved_dive_spots.includes(:dive_spot)
         render json: @saved_dives.as_json(include: :dive_spot)
       end

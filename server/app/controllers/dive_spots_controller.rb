@@ -1,12 +1,22 @@
 class DiveSpotsController < ApplicationController
   before_action :set_dive_spot, only: %i[ show update destroy ]
-  # before_action :authorize_request, except: :index
+  before_action :set_current_user, only: :index
+  before_action :authorize_request, except: :index
 
   # GET /dive_spots
   def index
     @dive_spots = DiveSpot.all
+    
+    if @current_diver
+    @saved_dive_id = @current_diver.saved_dive_spots.pluck(:dive_spot_id)
+    @dive_spot_with_saved_status = @dive_spots.map do |dive_spot|
+      dive_spot.attributes.merge(saved: @saved_dive_id.include?(dive_spot.id))
+    end
+    render json: @dive_spot_with_saved_status
+  else
     render json: @dive_spots
   end
+end
 
   # GET /dive_spots/1
   def show

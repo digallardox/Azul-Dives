@@ -12,8 +12,12 @@ export const UnauthorizedView = ({ page }) => {
         message: "Log in to see your saved dives",
         button: "variant2",
       },
+      reservations: {
+        title: "Upcoming Dives",
+        message: "Log in to see your planned dives",
+        button: "variant2",
+      },
     };
-
 
     return (
       <>

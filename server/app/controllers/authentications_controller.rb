@@ -6,7 +6,7 @@ class AuthenticationsController < ApplicationController
         if @diver.authenticate(login_params[:password]) 
           @token = encode({id: @diver.id})
           render json: {
-            diver: @diver.attributes.except("password_digest"),
+            # diver: @diver.attributes.except("password_digest"),
             token: @token
             }, status: :ok
         else
@@ -23,6 +23,6 @@ class AuthenticationsController < ApplicationController
       private
     
       def login_params
-        params.require(:login).permit(:username, :password)
+        params.require(:auth).permit(:username, :password)
       end
 end

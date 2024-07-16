@@ -5,7 +5,10 @@ const nextConfig = {
       allowedForwardedHosts: [
         "urban-couscous-595jw7gwj6wc44wv-3001.app.github.dev",
       ],
-      allowedOrigins: ["localhost:3001", "urban-couscous-595jw7gwj6wc44wv-3001.app.github.dev"],
+      allowedOrigins: [
+        "localhost:3001",
+        "urban-couscous-595jw7gwj6wc44wv-3001.app.github.dev",
+      ],
     },
   },
 };

@@ -1,5 +1,5 @@
 class DiversController < ApplicationController
-  before_action :set_diver, only: %i[ show update destroy ]
+  before_action :set_diver, only: %i[ update destroy ]
   before_action :authorize_request, except: :create
 
   # GET /divers
@@ -10,9 +10,10 @@ class DiversController < ApplicationController
 
   # GET /divers/1
   def show
+    @diver = @current_diver
     render json: {
-      diver: @diver,
-  }
+      diver: @diver.attributes.except("password_digest")
+  }, status: :ok
   end
 
   # POST /divers
