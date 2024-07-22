@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "app/_components/loginModal/LoginScreen.jsx",
+    "app/context/SessionContext.jsx",
+    "app/_lib/operations.js",
+    "app/(profile)/profile/page.jsx",
+    "app/_components/Card/index.jsx",
+    "app/(profile)/profile/variants/Explorer.jsx",
+    "app/_lib/queries.js",
+    "app/(profile)/profile/_components/FormTemplate.jsx"
+, "app/_helpers/sanitize.js", "app/_lib/queries/updateDiver.js", "app/_helpers/toggleState.js", "app/(saved)/saved-dives/_screens/LoggedIn.tsx"  ],
+  "exclude": ["node_modules"]
+}
