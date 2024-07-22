@@ -9,15 +9,21 @@ import { ProfileForm } from "@/_components/ProfileForm";
 
 const Login = async () => {
   const { authorized } = await getAuthToken();
-  const { diver } = await getUserProfile();
+  const { diver } = await getUserProfile()
+  const { first_name, last_name } = diver || ""
 
   if (!!authorized) {
     return (
       <>
         <Layout>
-          <div className="font-semibold text-2xl pb-[20px]">Hello, {diver.first_name} {diver.last_name}</div>
-          <div className="font-semibold text-xl pb-[20px]">Settings</div>
+          <div className="font-semibold text-2xl pb-[20px]">
+            Hello, {first_name} {last_name}
+          </div>
+          <div className="font-semibold text-2xl pb-[20px]">Settings</div>
           <ProfileForm user={diver} />
+          <button className="block bg-black text-white h-[50px] mt-[100px] w-[225px] rounded-full flex items-center justify-center gap-[5px]">
+            Switch to Guiding
+          </button>
         </Layout>
       </>
     );

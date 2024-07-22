@@ -3,6 +3,7 @@ import { Layout } from "@/_components/Layout";
 import { UnauthorizedView } from "@/_components/UnauthorizedView";
 import { getReservedDives } from "@/_utils/queries";
 import DiveGallery from "@/_components/DiveGallery";
+import { SavedDiveCard } from "@/_components/DiveCard";
 
 const Reservation = async () => {
   const { authorized } = await getAuthToken();
@@ -13,7 +14,11 @@ const Reservation = async () => {
       <>
         <Layout>
           <div className="font-semibold text-2xl pb-[20px]">Upcoming Dives</div>
-          <DiveGallery data={data} />
+          {data.map((e) => (
+            <>
+            <SavedDiveCard data={e}/>
+            </>
+          ))}
         </Layout>
       </>
     );

@@ -1,35 +1,42 @@
 "use client";
-import { SaveButton } from "./buttons/save";
+import { SaveButton } from "./buttons/saveButton";
+import Link from "next/link";
 
-const DiveCard = ({ fields }: any) => {
-  const { dive_spot } = fields || null;
+export const SavedDiveCard = ({ data }: any) => {
+  const saved_id = data.id
+  const { id, name, description, price, location, saved } = data.dive_spot;
 
-  if (!!dive_spot) {
-    const { id, name, description, price, location } = dive_spot;
-    return (
+  return (
+    <>
       <>
         <div className="pb-[40px] cursor-pointer">
-          <SaveButton state={true} />
-          <div className="w-[full] aspect-[10/10] bg-[#d9d9d9] rounded-[15px]" />
-          <div className={Styles.title}>{name}</div>
-          <div>{description}</div>
+          <SaveButton state={saved} id={saved_id} />
+          <Link href={`/dives/${id}`}>
+            <div className="w-[full] aspect-[10/10] bg-[#d9d9d9] rounded-[15px]" />
+            <div className={Styles.title}>{name}</div>
+            <div>{description}</div>
+          </Link>
           <div>
             <strong>${price}</strong> per explorer
           </div>
         </div>
       </>
-    );
-  }
+    </>
+  );
+};
 
-  const { id, name, description, price, location, saved } = fields;
-  console.log(saved)
+export const DiveCardAuth = ({ fields }: any) => {
+  const { id, saved_id, name, description, price, location, saved } = fields;
+
   return (
     <>
       <div className="pb-[40px] cursor-pointer">
-        <SaveButton state={saved} />
-        <div className="w-[full] aspect-[10/10] bg-[#d9d9d9] rounded-[15px]" />
-        <div className={Styles.title}>{name}</div>
-        <div>{description}</div>
+        <SaveButton state={saved} id={saved_id} />
+        <Link href={`/dives/${id}`}>
+          <div className="w-[full] aspect-[10/10] bg-[#d9d9d9] rounded-[15px]" />
+          <div className={Styles.title}>{name}</div>
+          <div>{description}</div>
+        </Link>
         <div>
           <strong>${price}</strong> per explorer
         </div>
@@ -38,9 +45,26 @@ const DiveCard = ({ fields }: any) => {
   );
 };
 
+export const DiveCard = ({ data }: any) => {
+  const { id, name, description, price, location, saved, saved_id } = data;
+
+  return (
+    <>
+      <Link href={`/dives/${id}`}>
+        <div className="pb-[40px] cursor-pointer">
+          <div className="w-[full] aspect-[10/10] bg-[#d9d9d9] rounded-[15px]" />
+          <div className={Styles.title}>{name}</div>
+          <div>{description}</div>
+          <div>
+            <strong>${price}</strong> per explorer
+          </div>
+        </div>
+      </Link>
+    </>
+  );
+};
+
 const Styles = {
   title: "text-lg font-semibold",
   heartIcon: "absolute right-10",
 };
-
-export default DiveCard;

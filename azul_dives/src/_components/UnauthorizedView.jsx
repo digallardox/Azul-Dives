@@ -23,7 +23,7 @@ export const UnauthorizedView = ({ page }) => {
       <>
         <div>
           <div className={Styles.title}>{nodes[page].title}</div>
-          <div>{nodes[page].message}</div>
+          <div className={Styles.text}>{nodes[page].message}</div>
           <LoginButton />
         </div>
       </>
@@ -31,5 +31,6 @@ export const UnauthorizedView = ({ page }) => {
 }
 
 const Styles = {
-    title: "font-semibold text-[32px]"
-}
+  title: "font-semibold text-[32px] pb-[100px]",
+  text: "font-semibold text-[32px] pb-[50px]",
+};

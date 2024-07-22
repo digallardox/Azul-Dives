@@ -8,7 +8,7 @@ export const ProfileForm = ({ user }: any) => {
   return (
     <>
       <div className="flex items-center justify-between pb-[20px]">
-        <div>
+        <div className="pt-[20px]">
           <label className="font-semibold">Legal name</label>
           <br />
           <input name="name" value={fullName} />
@@ -18,8 +18,8 @@ export const ProfileForm = ({ user }: any) => {
       <hr />
 
       <div className={Styles.flexParent}>
-        <div>
-          <label>Username</label>
+        <div className="pt-[20px]">
+          <label className="font-semibold">Username</label>
           <br />
           <input name="name" value={username} />
         </div>
